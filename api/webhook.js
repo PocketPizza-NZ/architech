@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { sql } from '@vercel/postgres';
+import { sql } from '../lib/db.js';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 

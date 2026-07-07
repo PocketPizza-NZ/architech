@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '../lib/db.js';
 
 // POST /api/lead — stores an intake submission in Postgres.
 export default async function handler(req, res) {
