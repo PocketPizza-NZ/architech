@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architech — Own Your Direct Bookings | NZ & Pacific Hospitality</title>
+<meta name="description" content="Architech builds commission-free booking engines and high-impact social content for independent NZ & Pacific hospitality brands.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{obsidian:'#090a0f',slate2:'#11131e',cyan2:'#06b6d4',violet2:'#8b5cf6',mint:'#10b981'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+<style>
+html{background:#090a0f}
+body{background:linear-gradient(180deg,#090a0f 0%,#11131e 50%,#090a0f 100%)}
+.glass{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.glow-teal{box-shadow:0 0 24px rgba(6,182,212,.45),0 0 64px rgba(6,182,212,.2)}
+.glow-violet{box-shadow:0 0 24px rgba(139,92,246,.35)}
+.txt-grad{background:linear-gradient(90deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rv{opacity:0;transform:translateY(2rem);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+input[type=range]{-webkit-appearance:none;appearance:none;height:8px;border-radius:9999px;background:linear-gradient(90deg,#06b6d4 var(--p,25%),rgba(255,255,255,.12) var(--p,25%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:#06b6d4;border:3px solid #090a0f;box-shadow:0 0 16px rgba(6,182,212,.8);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;background:#06b6d4;border:3px solid #090a0f;box-shadow:0 0 16px rgba(6,182,212,.8);cursor:pointer}
+.tgl{transition:background .3s}
+.tgl-dot{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.tgl.on{background:#10b981}
+.tgl.on .tgl-dot{transform:translateX(28px)}
+.step{display:none}
+.step.act{display:block;animation:fadein .4s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop .5s cubic-bezier(.22,1,.36,1) both}
+.reel-bar{animation:reelpulse 2.4s ease-in-out infinite}
+@keyframes reelpulse{0%,100%{opacity:.5}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body class="font-sans text-slate-200 antialiased overflow-x-hidden">
+<canvas id="net" class="fixed inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+<div class="relative z-10">
+
+<header class="max-w-6xl mx-auto px-5 pt-6 flex items-center justify-between">
+  <a href="#top" class="flex items-center gap-3 min-h-[48px]" aria-label="Architech home">
+    <svg width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 6 14 54h9l9-26 9 26h9L32 6Z" fill="url(#lg)"/><circle cx="24" cy="38" r="3.5" stroke="#06b6d4" stroke-width="2"/><circle cx="40" cy="38" r="3.5" stroke="#8b5cf6" stroke-width="2"/><path d="M24 41v9M40 41v9" stroke="#06b6d4" stroke-width="2"/><defs><linearGradient id="lg" x1="14" y1="6" x2="50" y2="54"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+    <span><span class="block font-extrabold tracking-widest text-lg leading-none"><span class="text-white">ARCHI</span><span class="text-cyan2">TECH</span></span><span class="block text-[10px] text-slate-400 tracking-wide mt-1">We structure code. We film experiences.</span></span>
+  </a>
+  <a href="#calc" class="hidden sm:inline-flex items-center min-h-[48px] px-5 rounded-full glass text-sm font-semibold text-cyan-300 hover:bg-white/10 transition">ROI Calculator</a>
+</header>
+
+<!-- 1 · HERO -->
+<section id="top" class="max-w-6xl mx-auto px-5 pt-12 pb-20 md:pt-20 grid md:grid-cols-2 gap-12 items-center">
+  <div class="rv">
+    <p class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs font-semibold text-mint mb-6"><span class="w-2 h-2 rounded-full bg-mint animate-pulse"></span>NZ & PACIFIC HOSPITALITY GROWTH STUDIO</p>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-white">Stop Bleeding <span class="txt-grad">20%</span> to Booking Platforms. Own Your Direct Bookings.</h1>
+    <p class="mt-6 text-lg text-slate-400 max-w-xl">We architect high-performance booking engines and produce high-impact social content for independent NZ & Pacific hospitality brands.</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="#calc" class="inline-flex items-center justify-center min-h-[56px] px-8 rounded-xl bg-cyan2 text-obsidian font-bold text-lg glow-teal hover:scale-[1.03] active:scale-95 transition-transform">Calculate Your ROI →</a>
+      <a href="#packages" class="inline-flex items-center justify-center min-h-[56px] px-8 rounded-xl glass font-semibold hover:bg-white/10 transition">View Packages</a>
+    </div>
+  </div>
+  <div class="rv relative" aria-hidden="true">
+    <div class="absolute -inset-8 bg-cyan2/10 blur-3xl rounded-full"></div>
+    <video class="relative w-full max-w-md mx-auto rounded-[2rem] glass glow-teal object-cover" src="Hero%20Strengths%20Animation.mp4" autoplay loop muted playsinline preload="auto" poster=""></video>
+  </div>
+</section>
+
+<!-- 2 · PROOF -->
+<section class="max-w-6xl mx-auto px-5 py-20">
+  <div class="rv text-center max-w-3xl mx-auto">
+    <p class="text-xs font-bold tracking-[.3em] text-cyan2">THE ARCHITECH ADVANTAGE</p>
+    <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-white">Proof, not promises: <span class="txt-grad">pocketpizza.co.nz</span></h2>
+    <p class="mt-4 text-slate-400">An Auckland local combined a commission-free ordering site with high-impact TikTok & Reels content — completely bypassing the aggregators. Every order, every customer, every dollar: theirs.</p>
+  </div>
+  <div class="rv mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="glass rounded-2xl p-6 text-center hover:border-cyan2/40 transition"><p class="text-4xl font-extrabold text-cyan2">0%</p><p class="mt-2 text-sm text-slate-400">Commissions</p></div>
+    <div class="glass rounded-2xl p-6 text-center hover:border-cyan2/40 transition"><p class="text-4xl font-extrabold text-white">&lt;1s</p><p class="mt-2 text-sm text-slate-400">Page Load Speed</p></div>
+    <div class="glass rounded-2xl p-6 text-center hover:border-violet2/40 transition"><p class="text-4xl font-extrabold text-violet2">100%</p><p class="mt-2 text-sm text-slate-400">Owned Customer Data</p></div>
+    <div class="glass rounded-2xl p-6 text-center hover:border-mint/40 transition"><p class="text-4xl font-extrabold text-mint">250k+</p><p class="mt-2 text-sm text-slate-400">Organic Video Views</p></div>
+  </div>
+</section>
+
+<!-- 3 · ROI CALCULATOR -->
+<section id="calc" class="max-w-4xl mx-auto px-5 py-20 scroll-mt-8">
+  <div class="rv glass rounded-3xl p-6 sm:p-10 glow-teal">
+    <h2 class="text-3xl font-extrabold text-white">ROI & Trade Calculator</h2>
+    <p class="mt-2 text-slate-400">Slide to your monthly booking revenue and watch the commission tax disappear.</p>
+    <label for="rev" class="block mt-8 text-sm font-semibold text-slate-300">Monthly Booking Revenue: <span id="revLbl" class="text-cyan2 text-xl font-extrabold">$25,000</span></label>
+    <input id="rev" type="range" min="5000" max="100000" step="1000" value="25000" class="w-full mt-4 touch-none" aria-label="Monthly booking revenue">
+    <div class="flex justify-between text-xs text-slate-500 mt-2"><span>$5k</span><span>$100k+</span></div>
+    <div class="mt-8 grid sm:grid-cols-2 gap-4">
+      <div class="rounded-2xl p-6 border border-red-500/30 bg-red-500/5"><p class="text-sm text-red-400 font-semibold">Commission Tax Lost (18%)</p><p id="lost" class="mt-2 text-3xl sm:text-4xl font-extrabold text-red-400">−$4,500<span class="text-base font-semibold text-red-400/60">/mo</span></p><p id="lostYr" class="mt-1 text-xs text-red-400/60">−$54,000 per year to aggregators</p></div>
+      <div class="rounded-2xl p-6 border border-mint/30 bg-mint/5"><p class="text-sm text-mint font-semibold">Net Savings with Architech</p><p id="save" class="mt-2 text-3xl sm:text-4xl font-extrabold text-mint">+$4,500<span class="text-base font-semibold text-mint/60">/mo</span></p><p id="saveYr" class="mt-1 text-xs text-mint/60">+$54,000 back in your pocket yearly</p></div>
+    </div>
+    <div class="mt-8 rounded-2xl border border-white/10 bg-white/[.03] p-6">
+      <div class="flex items-center justify-between gap-4">
+        <div><h3 class="font-bold text-white">Barter Value Calculator</h3><p class="text-sm text-slate-400 mt-1">Interested in a Content-for-Stay/Food Barter Trade?</p></div>
+        <button id="bt" role="switch" aria-checked="false" aria-label="Toggle barter trade" class="tgl relative shrink-0 w-16 h-9 min-h-[36px] rounded-full bg-white/15 p-1"><span class="tgl-dot block w-7 h-7 rounded-full bg-white shadow"></span></button>
+      </div>
+      <div id="btPanel" class="hidden mt-5 pt-5 border-t border-white/10">
+        <p class="text-slate-300 text-sm leading-relaxed">Offer complimentary <strong class="text-mint">room stays</strong> or <strong class="text-mint">tasting-menu access</strong> for our media shoots and offset <strong class="text-mint">up to 50% of your setup fees</strong>.</p>
+        <div class="mt-4 grid grid-cols-2 gap-3 text-center">
+          <div class="rounded-xl bg-mint/10 border border-mint/25 p-4"><p class="text-2xl font-extrabold text-mint">−50%</p><p class="text-xs text-slate-400 mt-1">Max setup offset</p></div>
+          <div class="rounded-xl bg-mint/10 border border-mint/25 p-4"><p id="btVal" class="text-2xl font-extrabold text-mint">$995</p><p class="text-xs text-slate-400 mt-1">Typical value on The Engine</p></div>
+        </div>
+      </div>
+    </div>
+    <a href="#intake" class="mt-8 inline-flex w-full sm:w-auto items-center justify-center min-h-[56px] px-10 rounded-xl bg-gradient-to-r from-cyan2 to-violet2 text-white font-bold text-lg hover:scale-[1.02] active:scale-95 transition-transform">Lock In Your Margin →</a>
+  </div>
+</section>
+
+<!-- 4 · PACKAGES -->
+<section id="packages" class="max-w-6xl mx-auto px-5 py-20 scroll-mt-8">
+  <div class="rv text-center"><p class="text-xs font-bold tracking-[.3em] text-violet2">PACKAGING MATRIX</p><h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-white">Three tiers. Zero commissions.</h2></div>
+  <div class="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+    <div class="rv glass rounded-3xl p-8 flex flex-col hover:border-cyan2/30 transition">
+      <h3 class="text-sm font-bold tracking-widest text-slate-400">BASIC</h3>
+      <p class="text-2xl font-extrabold text-white mt-1">The Footprint</p>
+      <p class="mt-4"><span class="text-4xl font-extrabold text-cyan2">$690</span><span class="text-slate-400"> setup</span></p>
+      <p class="text-slate-400 font-semibold">+ $69/mo</p>
+      <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Beautiful mobile-optimized 1-page site</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Local Maps SEO setup</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Google Profile optimization</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Secure hosting</li>
+      </ul>
+      <a href="#intake" data-plan="basic" class="buy mt-8 inline-flex items-center justify-center min-h-[52px] rounded-xl glass font-bold hover:bg-white/10 transition">Start Basic</a>
+    </div>
+    <div class="rv relative glass rounded-3xl p-8 flex flex-col border-cyan2/50 glow-teal md:-translate-y-3">
+      <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-cyan2 text-obsidian text-xs font-extrabold whitespace-nowrap">MOST POPULAR</span>
+      <h3 class="text-sm font-bold tracking-widest text-cyan2">MID</h3>
+      <p class="text-2xl font-extrabold text-white mt-1">The Engine</p>
+      <p class="mt-4"><span class="text-4xl font-extrabold text-cyan2">$1,990</span><span class="text-slate-400"> setup</span></p>
+      <p class="text-slate-400 font-semibold">+ $199/mo <span class="text-mint text-xs font-bold">· or Partial Barter Match</span></p>
+      <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Everything in Basic</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Commission-Free Booking/Ordering Engine</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>Automated review generation flow</li>
+        <li class="flex gap-2"><span class="text-cyan2">✓</span>1 dedicated on-site content shoot (3 high-impact Reels/TikToks)</li>
+      </ul>
+      <p class="mt-4 text-xs rounded-lg bg-mint/10 border border-mint/25 p-3 text-mint">Eligible for 25% setup fee offset in exchange for 1 complimentary night or chef's tasting invite.</p>
+      <a href="#intake" data-plan="engine" class="buy mt-6 inline-flex items-center justify-center min-h-[52px] rounded-xl bg-cyan2 text-obsidian font-extrabold hover:scale-[1.02] active:scale-95 transition-transform">Build The Engine</a>
+    </div>
+    <div class="rv glass rounded-3xl p-8 flex flex-col border-violet2/40 hover:glow-violet transition">
+      <h3 class="text-sm font-bold tracking-widest text-violet2">PREMIUM</h3>
+      <p class="text-2xl font-extrabold text-white mt-1">The Command Centre</p>
+      <p class="mt-4"><span class="text-4xl font-extrabold text-violet2">$4,990</span><span class="text-slate-400"> setup</span></p>
+      <p class="text-slate-400 font-semibold">+ $1,490/mo <span class="text-mint text-xs font-bold">· or Premium Barter Hybrid</span></p>
+      <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
+        <li class="flex gap-2"><span class="text-violet2">✓</span>Everything in Mid</li>
+        <li class="flex gap-2"><span class="text-violet2">✓</span>POS hardware integration</li>
+        <li class="flex gap-2"><span class="text-violet2">✓</span>Custom Looker dashboard</li>
+        <li class="flex gap-2"><span class="text-violet2">✓</span>Monthly content retainer: 8 POV-styled Reels/TikToks, organic video management & influencer-style review shoots</li>
+      </ul>
+      <p class="mt-4 text-xs rounded-lg bg-mint/10 border border-mint/25 p-3 text-mint">Setup fee completely waived for eligible luxury lodges/eateries in exchange for ongoing VIP hosting.</p>
+      <a href="#intake" data-plan="command" class="buy mt-6 inline-flex items-center justify-center min-h-[52px] rounded-xl bg-violet2 text-white font-extrabold hover:scale-[1.02] active:scale-95 transition-transform">Take Command</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · INTAKE FORM -->
+<section id="intake" class="max-w-2xl mx-auto px-5 py-20 scroll-mt-8">
+  <div class="rv glass rounded-3xl p-6 sm:p-10">
+    <div id="formWrap">
+      <div class="flex items-center gap-2 mb-8" aria-hidden="true">
+        <div data-dot="1" class="h-1.5 flex-1 rounded-full bg-cyan2 transition-colors"></div>
+        <div data-dot="2" class="h-1.5 flex-1 rounded-full bg-white/15 transition-colors"></div>
+        <div data-dot="3" class="h-1.5 flex-1 rounded-full bg-white/15 transition-colors"></div>
+      </div>
+      <form id="intakeForm" novalidate>
+        <fieldset class="step act" data-step="1">
+          <legend class="text-2xl font-extrabold text-white">What is your primary channel for bookings?</legend>
+          <div class="mt-6 grid gap-3" role="radiogroup">
+            <button type="button" data-pick="channel" data-val="OTAs" class="pick min-h-[56px] text-left px-5 rounded-xl glass font-semibold hover:border-cyan2/50 transition">🏨 OTAs (Booking.com, Expedia, UberEats…)</button>
+            <button type="button" data-pick="channel" data-val="Socials" class="pick min-h-[56px] text-left px-5 rounded-xl glass font-semibold hover:border-cyan2/50 transition">📱 Socials (Instagram, TikTok, Facebook)</button>
+            <button type="button" data-pick="channel" data-val="Word of Mouth" class="pick min-h-[56px] text-left px-5 rounded-xl glass font-semibold hover:border-cyan2/50 transition">🗣 Word of Mouth</button>
+            <button type="button" data-pick="channel" data-val="Legacy Site" class="pick min-h-[56px] text-left px-5 rounded-xl glass font-semibold hover:border-cyan2/50 transition">🕸 Legacy Site (old & slow)</button>
+          </div>
+        </fieldset>
+        <fieldset class="step" data-step="2">
+          <legend class="text-2xl font-extrabold text-white">What engagement model do you prefer?</legend>
+          <div class="mt-6 grid gap-3" role="radiogroup">
+            <button type="button" data-pick="model" data-val="Full Cash Retainer" class="pick min-h-[56px] text-left px-5 py-3 rounded-xl glass hover:border-cyan2/50 transition"><span class="font-bold block">A · Full Cash Retainer</span><span class="text-sm text-slate-400">Straightforward billing.</span></button>
+            <button type="button" data-pick="model" data-val="Hybrid Barter Trade" class="pick min-h-[56px] text-left px-5 py-3 rounded-xl glass hover:border-mint/50 transition"><span class="font-bold block">B · Hybrid Barter Trade <span class="text-mint text-xs">POPULAR</span></span><span class="text-sm text-slate-400">Comp stays/dining + reduced setup fee.</span></button>
+            <button type="button" data-pick="model" data-val="Pure Content Exchange" class="pick min-h-[56px] text-left px-5 py-3 rounded-xl glass hover:border-violet2/50 transition"><span class="font-bold block">C · Pure Content Exchange</span><span class="text-sm text-slate-400">For eligible premium locations.</span></button>
+          </div>
+          <button type="button" class="back mt-6 min-h-[48px] px-4 text-sm text-slate-400 hover:text-white transition">← Back</button>
+        </fieldset>
+        <fieldset class="step" data-step="3">
+          <legend class="text-2xl font-extrabold text-white">Almost there — your details.</legend>
+          <div class="mt-6 grid gap-4">
+            <input required name="name" autocomplete="name" placeholder="Your Name" class="min-h-[52px] px-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan2 focus:outline-none placeholder-slate-500 text-white w-full">
+            <input required name="business" autocomplete="organization" placeholder="Business Name" class="min-h-[52px] px-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan2 focus:outline-none placeholder-slate-500 text-white w-full">
+            <input required name="location" placeholder="Location (e.g. Queenstown, Rarotonga)" class="min-h-[52px] px-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan2 focus:outline-none placeholder-slate-500 text-white w-full">
+            <input required name="phone" type="tel" autocomplete="tel" placeholder="Phone" class="min-h-[52px] px-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan2 focus:outline-none placeholder-slate-500 text-white w-full">
+            <input name="email" type="email" autocomplete="email" placeholder="Email (optional)" class="min-h-[52px] px-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan2 focus:outline-none placeholder-slate-500 text-white w-full">
+          </div>
+          <p id="formErr" class="hidden mt-3 text-sm text-red-400">Please complete all fields.</p>
+          <div class="mt-6 flex items-center gap-4">
+            <button type="button" class="back min-h-[48px] px-4 text-sm text-slate-400 hover:text-white transition">← Back</button>
+            <button type="submit" class="flex-1 min-h-[56px] rounded-xl bg-gradient-to-r from-cyan2 to-violet2 text-white font-extrabold text-lg glow-teal hover:scale-[1.02] active:scale-95 transition-transform">Submit & Book Audit →</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div id="success" class="hidden text-center">
+      <div class="pop w-20 h-20 mx-auto rounded-full bg-mint/15 border-2 border-mint flex items-center justify-center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4 10-10" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 class="mt-6 text-2xl font-extrabold text-white">You're in, <span id="sName" class="text-cyan2"></span>.</h3>
+      <p class="mt-2 text-slate-400">Pick a slot for your <strong class="text-white">10-Minute Growth & Content Audit</strong>:</p>
+      <div id="cal" class="mt-6 grid grid-cols-3 gap-2"></div>
+      <p id="booked" class="hidden mt-6 rounded-xl bg-mint/10 border border-mint/30 p-4 text-mint font-semibold"></p>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-6xl mx-auto px-5 py-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+  <p>© 2026 Architech · Auckland, NZ · Building the future, connecting the dots.</p>
+  <p><span class="text-cyan2 font-semibold">0% commissions.</span> <span class="text-violet2 font-semibold">100% yours.</span></p>
+</footer>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+/* Canvas network */
+const cv=$('#net'),cx=cv.getContext('2d');
+let W,H,nodes=[],mx=-9e3,my=-9e3,raf;
+const mob=matchMedia('(pointer:coarse)').matches;
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;const N=Math.min(mob?38:70,Math.floor(W*H/16000));nodes=Array.from({length:N},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.8,c:Math.random()<.7?'#06b6d4':'#8b5cf6'}))}
+function tick(){cx.clearRect(0,0,W,H);const n=nodes,L=n.length;
+for(let i=0;i<L;i++){const a=n[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+cx.beginPath();cx.arc(a.x,a.y,a.r,0,6.283);cx.fillStyle=a.c;cx.globalAlpha=.55;cx.fill();
+for(let j=i+1;j<L;j++){const b=n[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+if(d2<10000){cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.strokeStyle='#06b6d4';cx.globalAlpha=.14*(1-d2/10000);cx.lineWidth=1;cx.stroke()}}
+const dxm=a.x-mx,dym=a.y-my,dm=dxm*dxm+dym*dym;
+if(dm<19600){cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.strokeStyle='#8b5cf6';cx.globalAlpha=.35*(1-dm/19600);cx.lineWidth=1.2;cx.stroke()}}
+cx.globalAlpha=1;raf=requestAnimationFrame(tick)}
+size();tick();
+addEventListener('resize',size,{passive:true});
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+addEventListener('touchmove',e=>{mx=e.touches[0].clientX;my=e.touches[0].clientY},{passive:true});
+document.addEventListener('visibilitychange',()=>document.hidden?cancelAnimationFrame(raf):tick());
+
+/* Reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* ROI calc */
+const rev=$('#rev'),fmt=v=>'$'+v.toLocaleString('en-NZ');
+function roi(){const v=+rev.value,lost=Math.round(v*.18);
+rev.style.setProperty('--p',((v-5000)/95000*100)+'%');
+$('#revLbl').textContent=fmt(v)+(v>=1e5?'+':'');
+$('#lost').innerHTML='−'+fmt(lost)+'<span class="text-base font-semibold text-red-400/60">/mo</span>';
+$('#lostYr').textContent='−'+fmt(lost*12)+' per year to aggregators';
+$('#save').innerHTML='+'+fmt(lost)+'<span class="text-base font-semibold text-mint/60">/mo</span>';
+$('#saveYr').textContent='+'+fmt(lost*12)+' back in your pocket yearly'}
+rev.addEventListener('input',roi);roi();
+
+/* Barter toggle */
+const bt=$('#bt');
+bt.addEventListener('click',()=>{const on=bt.classList.toggle('on');bt.setAttribute('aria-checked',on);$('#btPanel').classList.toggle('hidden',!on)});
+
+/* Stripe subscription checkout — falls back to intake form if billing not configured */
+$$('.buy[data-plan]').forEach(b=>b.addEventListener('click',async e=>{
+  e.preventDefault();
+  const plan=b.dataset.plan,orig=b.textContent;
+  b.style.pointerEvents='none';b.textContent='Loading…';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan})});
+    const j=await r.json();
+    if(r.ok&&j.url){location.href=j.url;return}
+    throw new Error(j.error||'checkout unavailable')
+  }catch(err){b.style.pointerEvents='';b.textContent=orig;location.hash='#intake'}
+}));
+
+/* Multi-step form */
+const data={};let cur=1;
+function go(n){cur=n;$$('.step').forEach(s=>s.classList.toggle('act',+s.dataset.step===n));
+$$('[data-dot]').forEach(d=>{d.classList.toggle('bg-cyan2',+d.dataset.dot<=n);d.classList.toggle('bg-white/15',+d.dataset.dot>n)});
+$('#intake').scrollIntoView({behavior:'smooth',block:'start'})}
+$$('.pick').forEach(b=>b.addEventListener('click',()=>{data[b.dataset.pick]=b.dataset.val;
+b.parentElement.querySelectorAll('.pick').forEach(x=>x.classList.remove('border-cyan2','bg-cyan2/10'));
+b.classList.add('border-cyan2','bg-cyan2/10');setTimeout(()=>go(cur+1),220)}));
+$$('.back').forEach(b=>b.addEventListener('click',()=>go(cur-1)));
+$('#intakeForm').addEventListener('submit',async e=>{e.preventDefault();
+const f=new FormData(e.target),vals={};let ok=true;
+['name','business','location','phone'].forEach(k=>{vals[k]=(f.get(k)||'').trim();if(!vals[k])ok=false});
+vals.email=(f.get('email')||'').trim();
+$('#formErr').classList.toggle('hidden',ok);if(!ok)return;
+Object.assign(data,vals);
+const sub=e.target.querySelector('button[type=submit]'),lbl=sub.textContent;
+sub.disabled=true;sub.textContent='Submitting…';
+try{await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})}catch(err){}
+sub.disabled=false;sub.textContent=lbl;
+$('#formWrap').classList.add('hidden');const sc=$('#success');sc.classList.remove('hidden');
+$('#sName').textContent=data.name.split(' ')[0];
+const cal=$('#cal'),days=[],now=new Date;
+for(let i=1;days.length<3;i++){const d=new Date(now);d.setDate(now.getDate()+i);if(d.getDay()&&d.getDay()<6)days.push(d)}
+const slots=['9:00 AM','11:30 AM','2:00 PM','4:30 PM'];
+days.forEach(d=>{const col=document.createElement('div');col.className='space-y-2';
+col.innerHTML='<p class="text-xs font-bold text-slate-400">'+d.toLocaleDateString('en-NZ',{weekday:'short',day:'numeric',month:'short'})+'</p>';
+slots.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;
+b.className='w-full min-h-[48px] rounded-lg glass text-sm font-semibold hover:border-cyan2/60 hover:text-cyan2 transition';
+b.onclick=()=>{$('#booked').textContent='✓ Audit locked in: '+d.toLocaleDateString('en-NZ',{weekday:'long',day:'numeric',month:'long'})+' at '+t+'. We’ll call '+data.phone+'.';
+$('#booked').classList.remove('hidden');cal.querySelectorAll('button').forEach(x=>x.classList.remove('border-mint','text-mint'));b.classList.add('border-mint','text-mint')};
+col.appendChild(b)});cal.appendChild(col)});
+sc.scrollIntoView({behavior:'smooth',block:'center'})});
+})();
+</script>
+</body>
+</html>

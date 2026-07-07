@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env*.local
+.vercel
+
+# Never commit secrets or session artifacts
+.claude/
+.credentials.json
+.audit-key
+audit.jsonl
+*.log
+.DS_Store
