@@ -1,0 +1,34 @@
+# Architech
+
+> Architech is an Auckland-based growth studio that builds commission-free direct booking engines and produces high-impact social video content for independent hospitality brands across New Zealand and the Pacific.
+
+Tagline: "We structure code. We film experiences."
+
+## What we do
+
+- Commission-free booking/ordering engines so venues stop paying 15-20% to OTAs and aggregators (Booking.com, Expedia, UberEats)
+- Fast, mobile-optimized websites (<1s page load) with local Maps SEO and Google Profile optimization
+- High-impact social content: POV-styled Reels and TikToks, influencer-style review shoots, organic video management
+- POS hardware integration and custom Looker dashboards (Premium tier)
+
+## Packages
+
+- **Basic — The Footprint**: $690 NZD setup + $69/mo. 1-page mobile site, local Maps SEO, Google Profile optimization, secure hosting.
+- **Mid — The Engine** (most popular): $1,990 NZD setup + $199/mo. Adds commission-free booking/ordering engine, automated review generation, and a dedicated on-site content shoot (3 Reels/TikToks). Partial barter eligible.
+- **Premium — The Command Centre**: $4,990 NZD setup + $1,490/mo. Adds POS integration, custom Looker dashboard, and a monthly content retainer (8 Reels/TikToks). Setup fee can be fully waived for eligible luxury venues via VIP hosting barter.
+
+## Barter model
+
+Venues can offset up to 50% of setup fees by providing complimentary room stays or tasting-menu access for Architech media shoots. Engagement models: full cash retainer, hybrid barter trade, or pure content exchange for eligible premium locations.
+
+## Proof
+
+Case study: pocketpizza.co.nz — an Auckland local business running a commission-free ordering site plus TikTok/Reels content. 0% commissions, <1s page load, 100% owned customer data, 250k+ organic video views.
+
+## Pages
+
+- [Home](https://architech.nz/): ROI calculator, packages, and intake form for a free 10-minute growth & content audit.
+
+## Contact
+
+Auckland, New Zealand. Book an audit via the intake form at https://architech.nz/#intake

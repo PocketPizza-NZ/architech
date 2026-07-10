@@ -15,9 +15,9 @@ const pool = new Pool({
 });
 
 const PRICES = {
-  basic: process.env.STRIPE_PRICE_BASIC,
-  engine: process.env.STRIPE_PRICE_ENGINE,
-  command: process.env.STRIPE_PRICE_COMMAND,
+  basic: { setup: process.env.STRIPE_PRICE_BASIC_SETUP, monthly: process.env.STRIPE_PRICE_BASIC_MONTHLY },
+  engine: { setup: process.env.STRIPE_PRICE_ENGINE_SETUP, monthly: process.env.STRIPE_PRICE_ENGINE_MONTHLY },
+  command: { setup: process.env.STRIPE_PRICE_COMMAND_SETUP, monthly: process.env.STRIPE_PRICE_COMMAND_MONTHLY },
 };
 
 async function ensureTables() {
@@ -90,13 +90,16 @@ app.post('/api/lead', async (req, res) => {
 
 app.post('/api/checkout', async (req, res) => {
   const { plan } = req.body || {};
-  const price = PRICES[plan];
-  if (!price) return res.status(400).json({ error: 'Unknown plan' });
+  const prices = PRICES[plan];
+  if (!prices || !prices.setup || !prices.monthly) return res.status(400).json({ error: 'Unknown plan' });
   const origin = req.headers.origin || `https://${req.headers.host}`;
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
-      line_items: [{ price, quantity: 1 }],
+      line_items: [
+        { price: prices.setup, quantity: 1 },
+        { price: prices.monthly, quantity: 1 },
+      ],
       success_url: `${origin}/?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?checkout=cancelled#packages`,
       allow_promotion_codes: true,
